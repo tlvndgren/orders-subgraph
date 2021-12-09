@@ -1,9 +1,9 @@
-// Dependencies
+// External Dependencies
 const fs = require("fs");
 const { ApolloServer, gql } = require("apollo-server");
 const { buildSubgraphSchema } = require("@apollo/federation")
 
-// Internal imports
+// Internal Dependencies
 const typeDefs = gql(fs.readFileSync("./orders.graphql", 'utf8'));
 const orders = require("./data/orders.js");
 
