@@ -4,9 +4,13 @@ directive @tag(name: String!) repeatable on
   | OBJECT
   | UNION
 
+"An individual order for a user."
 type Order @key(fields: "id") {
+    "Internal order ID for db mapping."
     id: ID!
+    "Products associated with the order."
     products: [Product]
+    "The user the order belongs to."
     user: User!
 }
 
