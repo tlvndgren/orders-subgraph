@@ -24,6 +24,8 @@ extend type User @key(fields: "id") {
 }
 
 extend type Query {
+    "Get a list of all orders."
     orders: [Order]
+    "Get a single order."
     order(id: ID!): Order
 }
