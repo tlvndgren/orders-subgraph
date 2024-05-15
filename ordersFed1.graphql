@@ -1,0 +1,31 @@
+directive @tag(name: String!) repeatable on
+  | FIELD_DEFINITION
+  | INTERFACE
+  | OBJECT
+  | UNION
+
+"An individual order object."
+type Order @key(fields: "id") {
+    "Internal order ID for db mapping."
+    id: ID!
+    "Products associated with the order."
+    products: [Product]
+    "The user the order belongs to."
+    user: User!
+}
+
+extend type Product @key(fields: "id") {
+    id: ID! @external
+}
+
+extend type User @key(fields: "id") {
+    id: ID! @external
+    orders: [Order]
+}
+
+extend type Query {
+    "Get a list of all orders."
+    orders: [Order]
+    "Get a single order."
+    order(id: ID!): Order
+}
