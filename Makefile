@@ -5,7 +5,7 @@ check:
 	
 publish:
 	rover subgraph publish Tyler-Fed-Demo@prod --schema ./orders.graphql \
-		--name orders --routing-url https://prod-products-subgraph-bhl6lhslfa-uc.a.run.app
+		--name orders --routing-url https://orders-as4-bhl6lhslfa-uc.a.run.app
 
 publish-staging:
 	rover subgraph publish Tyler-Fed-Demo@staging --schema ./orders.graphql \
